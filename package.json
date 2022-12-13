@@ -1,6 +1,6 @@
 {
   "name": "v-hotkey3",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "pnpm@7.18.0",
   "description": "Vue 3.2.x directive for binding hotkeys to components.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
