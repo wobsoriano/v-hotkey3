@@ -12,7 +12,7 @@ interface SVGElementWithKeyMap extends SVGElement {
   _keyHandler: (e: Event) => Event | undefined
 }
 
-function bindEvent(el: HTMLElementWithKeyMap | SVGElementWithKeyMap, { value, modifiers }: DirectiveBinding, alias: Record<string, Function>) {
+function bindEvent(el: HTMLElementWithKeyMap | SVGElementWithKeyMap, { value, modifiers }: DirectiveBinding, alias: Record<string, string | number>) {
   el._keyMap = getKeyMap(value, alias)
   el._keyHandler = e => assignKeyHandler(e, el._keyMap, modifiers)
 
@@ -25,7 +25,7 @@ function unbindEvent(el: HTMLElementWithKeyMap | SVGElementWithKeyMap) {
   document.removeEventListener('keyup', el._keyHandler)
 }
 
-export function buildDirective(alias: Record<string, Function>): Directive<HTMLElementWithKeyMap | SVGElementWithKeyMap> {
+export function buildDirective(alias: Record<string, string | number>): Directive<HTMLElementWithKeyMap | SVGElementWithKeyMap> {
   return {
     mounted(el, binding) {
       bindEvent(el, binding, alias)
