@@ -1,14 +1,10 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
-import HotkeyPlugin from '../src'
-import Foo from './Foo.vue'
+import Foo from './Foo2.vue'
 
-describe('Hotkey directive', () => {
+describe('Hotkey composable', () => {
   it('shows div on enter down', async () => {
     const wrapper = mount(Foo, {
-      global: {
-        plugins: [HotkeyPlugin],
-      },
       attachTo: document.body,
     })
     let div = wrapper.find('.visible')
@@ -21,9 +17,6 @@ describe('Hotkey directive', () => {
 
   it('hides div on esc down', async () => {
     const wrapper = mount(Foo, {
-      global: {
-        plugins: [HotkeyPlugin],
-      },
       attachTo: document.body,
     })
     await wrapper.trigger('keydown.enter')
