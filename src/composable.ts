@@ -2,7 +2,9 @@ import { getCurrentInstance, inject, onMounted, onScopeDispose } from 'vue'
 import { assignKeyHandler } from './helpers'
 import { getKeyMap } from './keycodes'
 
-export function useHotkey(keymap: Record<string, Function>, modifier?: 'prevent' | 'stop') {
+type KeyMap = Record<string, Record<string, () => void> | (() => void)>
+
+export function useHotkey(keymap: KeyMap, modifier?: 'prevent' | 'stop') {
   const alias = inject('hotkey-alias')
 
   const _keyMap = getKeyMap(keymap, alias ?? {})
