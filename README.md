@@ -2,7 +2,7 @@
 
 Vue 3.2.x directive for binding hotkeys to components.
 
-Though not a fork, this package is a direct copy of [v-hotkey](https://github.com/Dafrok/v-hotkey) made to work with Vue 3 (until probably this [PR](https://github.com/Dafrok/v-hotkey/pull/48) gets merged).
+Though not a fork, this package is a direct copy of [v-hotkey](https://github.com/Dafrok/v-hotkey) made to work with Vue 3 (until this [PR](https://github.com/Dafrok/v-hotkey/pull/48) probably gets merged).
 
 ## Install
 
