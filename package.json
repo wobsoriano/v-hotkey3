@@ -2,7 +2,7 @@
   "name": "v-hotkey3",
   "version": "0.0.1",
   "packageManager": "pnpm@7.18.0",
-  "description": "",
+  "description": "Vue 3.2.x directive for binding hotkeys to components.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/wobsoriano/v-hotkey3#readme",
