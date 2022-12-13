@@ -4,13 +4,18 @@ import { getKeyMap } from './keycodes'
 
 type KeyMap = Record<string, Record<string, () => void> | (() => void)>
 
-export function useHotkey(keymap: KeyMap, modifier?: 'prevent' | 'stop') {
-  const alias = inject('hotkey-alias')
+interface Options {
+  modifier?: 'prevent' | 'stop'
+  alias?: Record<string, string | number>
+}
 
-  const _keyMap = getKeyMap(keymap, alias ?? {})
+export function useHotkey(keymap: KeyMap, options: Options = {}) {
+  const alias = inject('hotkey-alias') ?? (options.alias || {})
+
+  const _keyMap = getKeyMap(keymap, alias)
   const _modifier: Record<string, boolean> = {}
-  if (modifier)
-    _modifier[modifier] = true
+  if (options.modifier)
+    _modifier[options.modifier] = true
 
   const keyHandler = (e: Event) => assignKeyHandler(e, _keyMap, _modifier)
 
