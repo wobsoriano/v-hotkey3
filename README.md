@@ -48,6 +48,37 @@ const keymap = {
 </template>
 ```
 
+## Composable
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { useHotkey } from 'v-hotkey3'
+
+const show = ref(true)
+
+useHotkey({
+  'ctrl+esc': () => {
+    show.value = !show.value
+  },
+  'enter': {
+    keydown() {
+      show.value = false
+    },
+    keyup() {
+      show.value = true
+    }
+  }
+})
+</script>
+
+<template>
+  <span v-show="show">
+    Press `ctrl + esc` to toggle me! Hold `enter` to hide me!
+  </span>
+</template>
+```
+
 ## Event Handler
 
 - keydown (as default) 
