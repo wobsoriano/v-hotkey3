@@ -1,4 +1,4 @@
-import { getCurrentInstance, inject, onMounted, onScopeDispose } from 'vue'
+import { getCurrentInstance, onMounted, onScopeDispose } from 'vue'
 import { assignKeyHandler } from './helpers'
 import { getKeyMap } from './keycodes'
 
