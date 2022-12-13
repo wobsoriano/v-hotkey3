@@ -10,9 +10,7 @@ interface Options {
 }
 
 export function useHotkey(keymap: KeyMap, options: Options = {}) {
-  const alias = inject('hotkey-alias') ?? (options.alias || {})
-
-  const _keyMap = getKeyMap(keymap, alias)
+  const _keyMap = getKeyMap(keymap, options.alias || {})
   const _modifier: Record<string, boolean> = {}
   if (options.modifier)
     _modifier[options.modifier] = true
