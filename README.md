@@ -26,18 +26,19 @@ app.use(HotkeyPlugin)
 import { computed, ref } from 'vue'
 
 const show = ref(true)
-const keymap = computed(() => ({
-  // 'esc+ctrl' is OK.
-  'ctrl+esc': this.toggle,
-  'enter': {
-    keydown: this.hide,
-    keyup: this.show
-  }
-}))
 
 const toggle = () => (show.value = !show.value)
 const show = () => (show.value = true)
 const hide = () => (show.value = false)
+
+const keymap = computed(() => ({
+  // 'esc+ctrl' is OK.
+  'ctrl+esc': toggle,
+  'enter': {
+    keydown: hide,
+    keyup: show
+  }
+}))
 </script>
 
 <template>
